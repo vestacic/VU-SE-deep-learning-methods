@@ -97,8 +97,8 @@ class SegmentationDataset(torch.utils.data.Dataset):
             )(image)
 
         else:
-            pad_x = math.ceil(image.width / 8) * 8 - image.width
-            pad_y = math.ceil(image.height / 8) * 8 - image.height
+            pad_x = math.ceil(image.width / 16) * 16 - image.width
+            pad_y = math.ceil(image.height / 16) * 16 - image.height
             image = torchvision.transforms.functional.pad(
                 image, [0, 0, pad_x, pad_y]
             )
